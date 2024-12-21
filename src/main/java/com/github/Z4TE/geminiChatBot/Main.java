@@ -11,7 +11,13 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        API_KEY =  this.getConfig().getString("API_KEY");
+        // API_KEY =  this.getConfig().getString("API_KEY");
+        API_KEY = "";
+
+        if (API_KEY == null) {
+            this.getConfig().set("API_KEY", "Enter here your Gemini API key");
+        }
+
         Objects.requireNonNull(getCommand("gemini")).setExecutor(new Commands());
     }
 
