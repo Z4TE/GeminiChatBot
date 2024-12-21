@@ -12,11 +12,20 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         API_KEY =  this.getConfig().getString("API_KEY");
+
+        if (API_KEY == null) {
+            this.getConfig().set("API_KEY", "Enter here your Gemini API key");
+        }
+
         Objects.requireNonNull(getCommand("gemini")).setExecutor(new Commands());
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public static Main getInstance() {
+        return getPlugin(Main.class);
     }
 }

@@ -8,4 +8,6 @@ if __name__ == "__main__":
     genai.configure(api_key=my_api_key)
     model = genai.GenerativeModel("gemini-1.5-flash")
     response = model.generate_content(args)
+
+    print("Working...")
     print(response.text)
