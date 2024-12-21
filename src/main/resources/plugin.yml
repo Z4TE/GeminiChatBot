@@ -1,0 +1,7 @@
+name: GeminiChatBot
+version: '1.0-SNAPSHOT'
+main: com.github.Z4TE.geminiChatBot.Main
+api-version: '1.21'
+commands:
+  gemini:
+    description: Calls Gemini API
