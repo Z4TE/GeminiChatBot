@@ -16,7 +16,6 @@ public final class Main extends JavaPlugin {
         if (API_KEY == null) {
             this.getConfig().set("API_KEY", "Enter here your Gemini API key");
         }
-
         Objects.requireNonNull(getCommand("gemini")).setExecutor(new Commands());
     }
 
