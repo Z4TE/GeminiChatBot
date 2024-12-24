@@ -51,9 +51,7 @@ public class PythonScriptCaller extends BukkitRunnable {
         }
 
         String finalOutput = output.toString().trim();
-        Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
-            Bukkit.broadcastMessage(finalOutput);
-        });
+        Bukkit.getScheduler().runTask(Main.getInstance(), () -> Bukkit.broadcastMessage(finalOutput));
     }
 
     public static void callPythonAsync(String pythonScriptPath, List<String> args) {
