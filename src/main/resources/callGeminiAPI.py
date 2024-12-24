@@ -7,7 +7,17 @@ if __name__ == "__main__":
 
     genai.configure(api_key=my_api_key)
     model = genai.GenerativeModel("gemini-1.5-flash")
-    response = model.generate_content(args)
+    chat = model.start_chat(history=[])
+
+    response = chat.generate_content(
+        args,
+        safety_settings={
+            HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT : HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_HATE_SPEECH : HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_HARASSMENT : HarmBlockThreshold.BLOCK_NONE,
+            HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT : HarmBlockThreshold.BLOCK_NONE
+        }
+    )
 
     print("Working...")
     print(response.text)
